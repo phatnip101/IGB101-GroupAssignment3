@@ -36,8 +36,6 @@ public class PlayerMovement : MonoBehaviour{
 
         Moving();
 
-        Jumping();
-
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
@@ -128,22 +126,7 @@ public class PlayerMovement : MonoBehaviour{
             anim.SetBool("Backwards", true);
         } else if(Input.GetKeyUp("s")){
             anim.SetBool("Backwards", false);
-        }
+        }  
     }
-    private void Jumping()
-    {
+}
 
-        if (GetComponent<CharacterController>().isGrounded)
-        {
-            if (Input.GetKeyDown("space"))
-            {
-                anim.SetBool("Jumping", true);
-            }
-            else if (Input.GetKeyUp("space"))
-            {
-                anim.SetBool("Jumping", false);
-            }
-  
-    }
-}
-}
