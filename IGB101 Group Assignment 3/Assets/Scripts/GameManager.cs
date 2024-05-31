@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class GameManager : MonoBehaviour { 
+public class GameManager : MonoBehaviour {
 
     public GameObject player;
 
@@ -12,17 +12,19 @@ public class GameManager : MonoBehaviour {
     public int currentPickups = 0;
     public int maxPickups = 5;
     public bool levelComplete = false;
-    
+
     public Text pickupText;
 
-    //public AudioSource[] audioSources;
-    //public float audioProximity = 5.0f;
+    //Audio Proximity Logic
+    public AudioSource[] audioSources;
+    public float audioProximity = 5.0f;
 
     // Update is called once per frame
     void Update()
     {
         LevelCompleteCheck();
         UpdateGUI();
+        PlayAudioSamples();
     }
 
     private void LevelCompleteCheck()
@@ -36,5 +38,20 @@ public class GameManager : MonoBehaviour {
     private void UpdateGUI()
     {
         pickupText.text = "Pickups: " + currentPickups + "/" + maxPickups;
+    }
+
+    //Loops for playing audio proximity events
+    private void PlayAudioSamples()
+    {
+        for (int i = 0; i < audioSources.Length; i++)
+        {
+            if(Vector3.Distance(player.transform.position, audioSources[i].transform.position) <= audioProximity)
+            {
+                if (!audioSources[i].isPlaying)
+                {
+                    audioSources[i].Play();
+                }
+            }
+        }
     }
 }
