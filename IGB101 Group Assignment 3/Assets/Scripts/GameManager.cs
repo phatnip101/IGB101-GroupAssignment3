@@ -41,14 +41,10 @@ public class GameManager : MonoBehaviour {
     }
 
     //Loops for playing audio proximity events
-    private void PlayAudioSamples()
-    {
-        for (int i = 0; i < audioSources.Length; i++)
-        {
-            if(Vector3.Distance(player.transform.position, audioSources[i].transform.position) <= audioProximity)
-            {
-                if (!audioSources[i].isPlaying)
-                {
+    private void PlayAudioSamples(){
+        for(int i = 0; i < audioSources.Length; i++){
+            if(Vector3.Distance(player.transform.position, audioSources[i].transform.position) <= audioProximity){
+                if(!audioSources[i].isPlaying){
                     audioSources[i].Play();
                 }
             }

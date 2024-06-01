@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class MaeDoor : MonoBehaviour
 {
-    Animation animation;
+    Animation maeanimation;
     public bool open = false;
     private float nextDoor;
     private float doorRate = 1.0f;
@@ -12,7 +11,7 @@ public class MaeDoor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animation = GetComponent<Animation>();
+        maeanimation = GetComponent<Animation>();
     }
 
     // Update is called once per frame
@@ -20,13 +19,13 @@ public class MaeDoor : MonoBehaviour
     {
         if (!open && Input.GetKeyDown("f") && Time.time > nextDoor)
         {
-            animation.Play("Mae Door Open");
+            maeanimation.Play("Mae Door Open");
             open = true;
             nextDoor = Time.time + doorRate;
         }
         else if (open && Input.GetKeyDown("f") && Time.time > nextDoor)
         {
-            animation.Play("Mae Door Close");
+            maeanimation.Play("Mae Door Close");
             open = false;
             nextDoor = Time.time + doorRate;
         }
