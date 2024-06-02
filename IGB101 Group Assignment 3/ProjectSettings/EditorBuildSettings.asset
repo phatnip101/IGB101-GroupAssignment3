@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MaeScene.unity
     guid: 298b49d7d1a52b241888e3ba87b2788b
+  - enabled: 1
+    path: Assets/Scenes/AdwoaScene.unity
+    guid: 4ca104a70536a46af9e039dde9e64a39
   m_configObjects: {}
